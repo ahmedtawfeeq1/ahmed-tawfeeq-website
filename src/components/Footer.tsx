@@ -37,7 +37,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row gap-6 md:gap-10">
             <Link to="/" className="text-sm hover:text-primary">Home</Link>
             <Link to="/ai-agent-coaching" className="text-sm hover:text-primary">AI Agent Coaching</Link>
-            <a href="#contact" className="text-sm hover:text-primary">Contact</a>
+            {/* <a href="#contact" className="text-sm hover:text-primary">Contact</a> */}
             <a href="https://genudo.ai" target="_blank" rel="noopener noreferrer" className="text-sm hover:text-primary">GenuDo</a>
           </div>
         </div>

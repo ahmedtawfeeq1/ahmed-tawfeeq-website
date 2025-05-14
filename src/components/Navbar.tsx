@@ -9,27 +9,21 @@ import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { useIsMobile } from "@/hooks/use-mobile";
 
+const WHATSAPP_URL = "https://wa.me/+201288493425";
+
 const navItems = [
   { name: "Home", path: "/" },
   { name: "AI Agent Coaching", path: "/ai-agent-coaching" },
-  { name: "Contact", path: "#contact" },
+  { name: "Agents Directory", path: "/agents" },
+  // { name: "Contact", path: "#contact" },
 ];
 
 const mobileMenuVariants = {
-  closed: {
-    opacity: 0,
-    x: "100%",
-    transition: { type: "tween", duration: 0.3 },
-  },
+  closed: { opacity: 0, x: "100%", transition: { duration: 0.3 } },
   open: {
     opacity: 1,
     x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 20,
-      when: "beforeChildren",
-    },
+    transition: { type: "spring", stiffness: 100, damping: 20, when: "beforeChildren" },
   },
 };
 
@@ -68,9 +62,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollY]);
 
-  /* ------------------------------------------------------------------ */
-  /*  Render                                                            */
-  /* ------------------------------------------------------------------ */
+  /* ───────────────────────────── Render ───────────────────────────── */
   return (
     <>
       {/* ====================   FIXED HEADER   ==================== */}
@@ -84,31 +76,36 @@ const Navbar = () => {
       >
         <div className="container flex items-center justify-between">
           <Link to="/">
-            <span className="text-xl font-bold tracking-tight">
-              Ahmed Tawfeeq
-            </span>
+            <span className="text-xl font-bold tracking-tight">Ahmed Tawfeeq</span>
           </Link>
 
           {/* ---------- Desktop nav ---------- */}
           <div className="hidden md:flex items-center space-x-6">
             <nav className="flex items-center space-x-6">
-              {navItems.map((item) => (
+              {navItems.map(({ name, path }) => (
                 <Link
-                  key={item.name}
-                  to={item.path}
+                  key={name}
+                  to={path}
                   className={cn(
                     "text-sm transition-colors hover:text-primary relative",
                     "after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5",
-                    "after:bottom-0 after:left-0 after:bg-primary",
-                    "after:origin-bottom-right after:transition-transform after:duration-300",
-                    "hover:after:scale-x-100 hover:after:origin-bottom-left"
+                    "after:bottom-0 after:left-0 after:bg-primary after:transition-transform after:duration-300",
+                    "hover:after:scale-x-100"
                   )}
                 >
-                  {item.name}
+                  {name}
                 </Link>
               ))}
             </nav>
+
             <ThemeToggle />
+
+            {/* >>> Desktop WhatsApp CTA */}
+            <Button asChild size="sm" className="whitespace-nowrap">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                Let’s Talk!
+              </a>
+            </Button>
           </div>
 
           {/* ---------- Mobile buttons ---------- */}
@@ -141,7 +138,7 @@ const Navbar = () => {
             )}
           >
             <FocusTrap active>
-              <div className="flex flex-col h-full overflow-y-auto px-6 pt-6">
+              <div className="flex flex-col h-full overflow-y-auto px-6 pt-6 pb-10">
                 <div className="flex items-center justify-between mb-8">
                   <span className="text-lg font-semibold">Menu</span>
                   <Button
@@ -155,17 +152,29 @@ const Navbar = () => {
                 </div>
 
                 <nav className="flex flex-col space-y-4">
-                  {navItems.map((item) => (
+                  {navItems.map(({ name, path }) => (
                     <Link
-                      key={item.name}
-                      to={item.path}
+                      key={name}
+                      to={path}
                       onClick={() => setIsMenuOpen(false)}
                       className="text-lg hover:text-primary p-2 rounded-md hover:bg-muted transition-colors"
                     >
-                      {item.name}
+                      {name}
                     </Link>
                   ))}
                 </nav>
+
+                {/* >>> Mobile WhatsApp CTA */}
+                <Button
+                  asChild
+                  size="lg"
+                  className="mt-auto w-full"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
+                    Let’s Talk!
+                  </a>
+                </Button>
               </div>
             </FocusTrap>
           </motion.aside>

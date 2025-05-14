@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
 import CoachingPage from "@/pages/CoachingPage";
 import NotFound from "@/pages/NotFound";
+import AgentsDirectory from "@/pages/AgentsDirectory";
+
 
 const queryClient = new QueryClient();
 
@@ -25,6 +27,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/ai-agent-coaching" element={<CoachingPage />} />
+              <Route path="/agents" element={<AgentsDirectory />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>

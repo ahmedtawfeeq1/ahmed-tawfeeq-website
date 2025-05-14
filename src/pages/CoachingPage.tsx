@@ -142,7 +142,7 @@ const CoachingPage = () => {
               
               <TabsContent value="milestone1">
                 <motion.div initial="hidden" animate="visible" variants={staggerContainer} className="space-y-6">
-                  {renderWeekCard("Week 1", "Gap Analysis & Action Planning", "Understand your workflows deeply to define what agents to build.", ["We work with you (or your team) to map: Jobs → Responsibilities → Processes → Tasks", "We identify what can be turned into knowledge agents, what needs action agents, and what should be automated", "We determine the tools, platforms, and systems you already use", "We deliver a full Action Plan: Knowledge Agents, Action Agents, Automation Workflows, and Platforms to integrate with"], <Search className="h-5 w-5 text-primary" />)}
+                  {renderWeekCard("Week 1", "Gap Analysis & Planning", "Understand your workflows deeply to define what agents to build.", ["We work with you (or your team) to map: Jobs → Responsibilities → Processes → Tasks", "We identify what can be turned into knowledge agents, what needs action agents, and what should be automated", "We determine the tools, platforms, and systems you already use", "We deliver a full Action Plan: Knowledge Agents, Action Agents, Automation Workflows, and Platforms to integrate with"], <Search className="h-5 w-5 text-primary" />)}
                   
                   {renderWeekCard("Week 2", "Building Knowledge Agents", "Build AI agents that handle data retrieval, answering, and smart knowledge queries.", ["Together, we build 1 or 2 Knowledge Agents (based on Week 1 plan)", "We guide your team to build additional ones with us watching and supporting"], <BookOpen className="h-5 w-5 text-primary" />)}
                   
